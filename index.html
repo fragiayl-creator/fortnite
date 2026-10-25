@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Fortnite 2026 Official Reward Portal</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome Icons via CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Google Fonts: Luckiest Guy & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-deep: #0f0c29;
+      --bg-mid: #302b63;
+      --bg-dark: #24243e;
+      --neon-cyan: #00f2fe;
+      --bright-yellow: #ffeb3b;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-deep);
+      /* استخدام الصورة الثانية thumbbig-1326064.webp كخلفية احترافية مع تدرج لوني داكن */
+      background-image: 
+        linear-gradient(to bottom, rgba(15, 12, 41, 0.82), rgba(48, 43, 99, 0.88), rgba(15, 12, 41, 0.96)),
+        url('thumbbig-1326064.webp');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #ffffff;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+
+    .font-gaming {
+      font-family: 'Luckiest Guy', cursive;
+      letter-spacing: 0.04em;
+    }
+
+    .glass-card {
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.6);
+    }
+
+    .neon-border-cyan {
+      border-color: var(--neon-cyan) !important;
+      box-shadow: 0 0 14px rgba(0, 242, 254, 0.45), inset 0 0 8px rgba(0, 242, 254, 0.15);
+    }
+
+    .neon-border-yellow {
+      border-color: var(--bright-yellow) !important;
+      box-shadow: 0 0 18px rgba(255, 235, 59, 0.6), inset 0 0 10px rgba(255, 235, 59, 0.2);
+    }
+
+    .cta-yellow {
+      background: linear-gradient(135deg, #ffeb3b 0%, #fbc02d 100%);
+      color: #0f0c29;
+      box-shadow: 0 0 20px rgba(255, 235, 59, 0.65);
+      animation: pulse-yellow 1.8s infinite;
+    }
+
+    .cta-green {
+      background: linear-gradient(135deg, #00e676 0%, #00c853 100%);
+      color: #06210f;
+      box-shadow: 0 0 22px rgba(0, 230, 118, 0.7);
+      animation: pulse-green 1.6s infinite;
+    }
+
+    @keyframes pulse-yellow {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 18px rgba(255, 235, 59, 0.65); }
+      50% { transform: scale(1.02); box-shadow: 0 0 28px rgba(255, 235, 59, 0.95); }
+    }
+
+    @keyframes pulse-green {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 18px rgba(0, 230, 118, 0.65); }
+      50% { transform: scale(1.03); box-shadow: 0 0 30px rgba(0, 230, 118, 0.95); }
+    }
+
+    @keyframes float-img {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .floating-cards {
+      animation: float-img 3s ease-in-out infinite;
+    }
+
+    .progress-glow {
+      background: linear-gradient(90deg, #00f2fe 0%, #4facfe 50%, #ffeb3b 100%);
+      box-shadow: 0 0 14px rgba(0, 242, 254, 0.8);
+      transition: width 0.25s ease-out;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-between p-3 pb-16 select-none">
+
+  <!-- Top Trust & Status Bar -->
+  <header class="w-full max-w-md glass-card rounded-full px-3.5 py-2 flex items-center justify-between text-xs font-bold mb-3 z-10">
+    <div class="flex items-center gap-2">
+      <span class="relative flex h-2.5 w-2.5">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+      </span>
+      <span class="text-emerald-300 tracking-tight">Status: <span class="text-white">ONLINE (2026 Patch)</span></span>
+    </div>
+    <div class="bg-amber-400/20 border border-amber-300/40 text-amber-300 px-2.5 py-0.5 rounded-full text-[11px]">
+      Slots Left: <span id="slots-counter" class="font-extrabold text-white">14</span>/50
+    </div>
+  </header>
+
+  <!-- Main 9:16 Mobile Container -->
+  <main class="w-full max-w-md flex-1 flex flex-col justify-center my-auto space-y-3 z-10">
+    
+    <!-- Hero Header with V-Bucks Cards Image (4223850.webp) -->
+    <div class="glass-card rounded-2xl p-3 flex items-center gap-3 relative overflow-hidden">
+      <img 
+        src="4223850.webp" 
+        alt="Fortnite V-Bucks Cards" 
+        class="w-24 sm:w-28 h-auto rounded-lg object-cover floating-cards drop-shadow-[0_0_12px_rgba(0,242,254,0.5)] shrink-0"
+      />
+      <div class="text-left">
+        <div class="inline-block bg-cyan-400/15 border border-cyan-400/40 text-[#00f2fe] text-[9px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full mb-1">
+          <i class="fa-solid fa-fire mr-1"></i>Official 2026 Glitch
+        </div>
+        <h1 class="font-gaming text-2xl sm:text-3xl text-white leading-none drop-shadow-[0_3px_3px_rgba(0,0,0,0.8)]">
+          V-BUCKS <span class="text-[#ffeb3b]">PORTAL</span>
+        </h1>
+        <p class="text-[11px] text-slate-300 font-semibold mt-1">
+          Instant delivery to PSN, Xbox, PC, Switch &amp; Mobile!
+        </p>
+      </div>
+    </div>
+
+    <!-- VIDEO PROOF SECTION (فيديو إثبات الدفع) -->
+    <section class="glass-card rounded-2xl p-3 space-y-2 border border-amber-400/40">
+      <div class="flex items-center justify-between">
+        <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#ffeb3b] flex items-center gap-1.5">
+          <span class="h-2 w-2 rounded-full bg-rose-500 animate-ping"></span>
+          <i class="fa-solid fa-circle-play text-[#00f2fe]"></i> Watch Live Payment Proof (13,500 V-Bucks)
+        </span>
+        <span class="bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-[9px] font-black px-2 py-0.5 rounded-full">
+          VERIFIED 100%
+        </span>
+      </div>
+
+      <!-- مشغل الفيديو: ضع ملف الفيديو باسم proof.mp4 في نفس المجلد أو غيّر الرابط في src -->
+      <div class="relative rounded-xl overflow-hidden border border-cyan-400/30 bg-slate-950 aspect-video shadow-inner">
+        <video 
+          id="proof-video"
+          class="w-full h-full object-cover" 
+          poster="thumbbig-1326064.webp" 
+          controls 
+          playsinline
+          preload="metadata"
+        >
+          <!-- ضع رابط الفيديو الخاص بك هنا بدل proof.mp4 -->
+          <source src="proof.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <p class="text-[10px] text-center text-slate-300 font-semibold">
+        <i class="fa-solid fa-circle-info text-cyan-400 mr-1"></i>Watch how the V-Bucks arrive instantly after completing verification!
+      </p>
+    </section>
+
+    <!-- STEP 1 & 2: Interactive Funnel Form -->
+    <section id="funnel-step-form" class="glass-card rounded-2xl p-4 space-y-4">
+      <!-- Step 1: Username Input -->
+      <div>
+        <label for="username-input" class="block text-xs font-extrabold uppercase tracking-wider text-[#00f2fe] mb-1.5">
+          1. Enter Your Epic Games / Fortnite Username
+        </label>
+        <div class="relative">
+          <i class="fa-solid fa-user-astronaut absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-300 text-sm"></i>
+          <input
+            id="username-input"
+            type="text"
+            maxlength="32"
+            placeholder="e.g. PeelyKing2026"
+            class="w-full bg-slate-900/90 border border-cyan-400/40 focus:border-[#00f2fe] rounded-xl pl-10 pr-4 py-2.5 text-sm font-bold text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/30"
+          />
+        </div>
+        <p id="form-error" class="hidden text-rose-400 text-[11px] font-bold mt-1">
+          <i class="fa-solid fa-triangle-exclamation mr-1"></i>Please enter your Fortnite username first!
+        </p>
+      </div>
+
+      <!-- Platform Selection -->
+      <div>
+        <span class="block text-xs font-extrabold uppercase tracking-wider text-[#00f2fe] mb-1.5">
+          Select Your Platform
+        </span>
+        <div class="grid grid-cols-5 gap-1.5" id="platform-grid">
+          <button type="button" data-platform="PlayStation" class="platform-btn neon-border-cyan bg-slate-900/80 border rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition">
+            <i class="fa-brands fa-playstation text-lg text-[#00f2fe]"></i>
+            <span class="text-[10px] font-bold">PSN</span>
+          </button>
+          <button type="button" data-platform="Xbox" class="platform-btn bg-slate-900/50 border border-white/15 rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition">
+            <i class="fa-brands fa-xbox text-lg text-slate-300"></i>
+            <span class="text-[10px] font-bold">Xbox</span>
+          </button>
+          <button type="button" data-platform="PC" class="platform-btn bg-slate-900/50 border border-white/15 rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition">
+            <i class="fa-solid fa-desktop text-lg text-slate-300"></i>
+            <span class="text-[10px] font-bold">PC</span>
+          </button>
+          <button type="button" data-platform="Nintendo Switch" class="platform-btn bg-slate-900/50 border border-white/15 rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition">
+            <i class="fa-solid fa-gamepad text-lg text-slate-300"></i>
+            <span class="text-[10px] font-bold">Switch</span>
+          </button>
+          <button type="button" data-platform="Mobile" class="platform-btn bg-slate-900/50 border border-white/15 rounded-xl py-2 flex flex-col items-center justify-center gap-1 transition">
+            <i class="fa-solid fa-mobile-screen-button text-lg text-slate-300"></i>
+            <span class="text-[10px] font-bold">Mobile</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Package Selection (مع صورة البطاقات المرفقة) -->
+      <div>
+        <span class="block text-xs font-extrabold uppercase tracking-wider text-[#00f2fe] mb-1.5">
+          2. Select V-Bucks Package
+        </span>
+        <div class="grid grid-cols-2 gap-2.5" id="package-grid">
+          <!-- 2,800 -->
+          <div data-amount="2800" class="package-card cursor-pointer bg-slate-900/60 border border-white/15 rounded-xl p-2.5 text-center transition relative flex flex-col items-center">
+            <img src="4223850.webp" alt="2800 V-Bucks" class="w-12 h-8 object-cover rounded mb-1 opacity-90" />
+            <div class="font-gaming text-2xl text-white leading-none">2,800</div>
+            <div class="text-[10px] font-bold text-cyan-300 uppercase">V-Bucks</div>
+          </div>
+
+          <!-- 5,000 -->
+          <div data-amount="5000" class="package-card cursor-pointer bg-slate-900/60 border border-white/15 rounded-xl p-2.5 text-center transition relative flex flex-col items-center">
+            <img src="4223850.webp" alt="5000 V-Bucks" class="w-12 h-8 object-cover rounded mb-1 opacity-90" />
+            <div class="font-gaming text-2xl text-white leading-none">5,000</div>
+            <div class="text-[10px] font-bold text-cyan-300 uppercase">V-Bucks</div>
+          </div>
+
+          <!-- 13,500 (Most Popular) -->
+          <div data-amount="13500" class="package-card cursor-pointer neon-border-yellow bg-slate-900/90 border-2 rounded-xl p-2.5 text-center transition relative flex flex-col items-center">
+            <span class="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-[#ffeb3b] text-slate-950 text-[9px] font-black uppercase px-2 py-0.5 rounded-full whitespace-nowrap shadow">
+              MOST POPULAR
+            </span>
+            <img src="4223850.webp" alt="13500 V-Bucks" class="w-14 h-9 object-cover rounded mt-1 mb-1 shadow" />
+            <div class="font-gaming text-2xl text-[#ffeb3b] leading-none">13,500</div>
+            <div class="text-[10px] font-bold text-white uppercase">V-Bucks + Bonus</div>
+          </div>
+
+          <!-- 25,000 -->
+          <div data-amount="25000" class="package-card cursor-pointer bg-slate-900/60 border border-white/15 rounded-xl p-2.5 text-center transition relative flex flex-col items-center">
+            <img src="4223850.webp" alt="25000 V-Bucks" class="w-12 h-8 object-cover rounded mb-1 opacity-90" />
+            <div class="font-gaming text-2xl text-white leading-none">25,000</div>
+            <div class="text-[10px] font-bold text-cyan-300 uppercase">V-Bucks (MAX)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <button
+        id="claim-btn"
+        type="button"
+        class="w-full cta-yellow rounded-xl py-3.5 font-gaming text-xl tracking-wider uppercase flex items-center justify-center gap-2 transition"
+      >
+        <i class="fa-solid fa-bolt"></i>
+        <span>CLAIM V-BUCKS NOW</span>
+      </button>
+    </section>
+
+    <!-- STEP 3 & 4: Simulated Processing Terminal & Verification Card -->
+    <section id="funnel-step-terminal" class="hidden glass-card rounded-2xl p-4 space-y-4">
+      <!-- Terminal Header -->
+      <div class="flex items-center justify-between border-b border-white/10 pb-2">
+        <div class="flex items-center gap-1.5">
+          <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+          <span class="text-[11px] font-bold text-slate-300 ml-1">EPIC_SERVER_2026</span>
+        </div>
+        <span id="progress-percent" class="text-xs font-extrabold text-[#00f2fe]">0%</span>
+      </div>
+
+      <!-- Animated Counter Display -->
+      <div class="bg-slate-950/85 border border-cyan-400/30 rounded-xl p-3 text-center flex items-center justify-center gap-3">
+        <img src="4223850.webp" alt="V-Bucks Card" class="w-16 h-12 object-cover rounded-lg shadow" />
+        <div class="text-left">
+          <div class="text-[10px] uppercase font-bold text-slate-400">Injecting Package</div>
+          <div class="font-gaming text-3xl text-[#ffeb3b]">
+            <span id="vbucks-counter">0</span> <span class="text-sm text-[#00f2fe]">V-BUCKS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Glowing Progress Bar -->
+      <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden border border-white/10">
+        <div id="progress-bar" class="h-full progress-glow w-0"></div>
+      </div>
+
+      <!-- Terminal Log Output -->
+      <div id="terminal-logs" class="bg-slate-950/90 rounded-xl p-3 font-mono text-xs space-y-1.5 h-28 overflow-y-auto border border-white/10 text-emerald-400">
+      </div>
+
+      <!-- Step 4: Verification Trigger Card (With Direct OGAds Link) -->
+      <div id="verification-card" class="hidden bg-slate-900/95 border-2 border-[#00f2fe] rounded-xl p-3.5 text-center space-y-3 shadow-2xl">
+        <div class="inline-flex items-center gap-1.5 bg-amber-400/20 text-amber-300 border border-amber-400/40 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold">
+          <i class="fa-solid fa-shield-halved"></i> Human Verification Required
+        </div>
+        <p id="verification-text" class="text-xs text-slate-200 font-semibold leading-relaxed">
+          To prevent bot abuse and finalize sending <span class="text-[#ffeb3b] font-extrabold">13,500</span> V-Bucks to <span class="text-[#00f2fe] font-extrabold">User</span>, please complete 1 quick free verification step below.
+        </p>
+
+        <!-- زر اللوكر المباشر -->
+        <a
+          id="locker-btn"
+          href="https://trkoffer.net/cl/i/rn4wvg"
+          onclick="return call_locker(event);"
+          class="w-full cta-green rounded-xl py-3.5 font-gaming text-lg tracking-wider uppercase flex items-center justify-center gap-2 no-underline cursor-pointer"
+        >
+          <i class="fa-solid fa-user-check"></i>
+          <span>VERIFY NOW &amp; UNLOCK V-BUCKS</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- نافذة اللوكر المدمجة (Iframe Locker Overlay) لضمان بقاء الزائر في نفس الصفحة إن رغبت -->
+  <div id="locker-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex-col items-center justify-center p-3">
+    <div class="w-full max-w-md bg-slate-900 border-2 border-[#00f2fe] rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[82dvh]">
+      <div class="bg-slate-950 px-4 py-2.5 flex items-center justify-between border-b border-white/10">
+        <span class="text-xs font-extrabold text-[#00f2fe] flex items-center gap-1.5">
+          <i class="fa-solid fa-lock"></i> Final Step: Complete 1 Offer to Unlock
+        </span>
+        <a href="https://trkoffer.net/cl/i/rn4wvg" target="_blank" class="text-[11px] text-[#ffeb3b] underline font-bold">
+          Open in Full Tab <i class="fa-solid fa-up-right-from-square ml-0.5"></i>
+        </a>
+      </div>
+      <iframe id="locker-iframe" src="" class="w-full flex-1 border-0 bg-white"></iframe>
+    </div>
+  </div>
+
+  <!-- Floating Live Social Proof Toast -->
+  <div
+    id="live-toast"
+    class="fixed bottom-3 left-1/2 -translate-x-1/2 w-[92%] max-w-sm glass-card rounded-xl px-3 py-2 flex items-center gap-2.5 text-xs shadow-lg transition-all duration-500 opacity-0 translate-y-4 pointer-events-none z-40"
+  >
+    <div class="h-7 w-7 rounded-full bg-emerald-500/20 border border-emerald-400 flex items-center justify-center text-emerald-300 shrink-0">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <div id="toast-message" class="font-semibold text-slate-100 text-[11px] leading-tight"></div>
+  </div>
+
+  <script>
+    // رابط اللوكر الخاص بك من OGAds
+    const LOCKER_URL = "https://trkoffer.net/cl/i/rn4wvg";
+
+    // State variables
+    let selectedPlatform = 'PlayStation';
+    let selectedAmount = 13500;
+
+    // نُقصان تدريجي لعدد الأماكن المتبقية لزيادة الـ FOMO
+    setInterval(() => {
+      const slotsEl = document.getElementById('slots-counter');
+      let currentSlots = parseInt(slotsEl.textContent, 10);
+      if (currentSlots > 3 && Math.random() > 0.55) {
+        slotsEl.textContent = currentSlots - 1;
+      }
+    }, 7000);
+
+    // Platform selection logic
+    const platformButtons = document.querySelectorAll('.platform-btn');
+    platformButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        selectedPlatform = btn.getAttribute('data-platform');
+        platformButtons.forEach((b) => {
+          b.classList.remove('neon-border-cyan', 'bg-slate-900/80');
+          b.classList.add('bg-slate-900/50', 'border-white/15');
+          b.querySelector('i').classList.remove('text-[#00f2fe]');
+          b.querySelector('i').classList.add('text-slate-300');
+        });
+        btn.classList.add('neon-border-cyan', 'bg-slate-900/80');
+        btn.classList.remove('bg-slate-900/50', 'border-white/15');
+        btn.querySelector('i').classList.add('text-[#00f2fe]');
+        btn.querySelector('i').classList.remove('text-slate-300');
+      });
+    });
+
+    // Package selection logic
+    const packageCards = document.querySelectorAll('.package-card');
+    packageCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        selectedAmount = parseInt(card.getAttribute('data-amount'), 10);
+        packageCards.forEach((c) => {
+          c.classList.remove('neon-border-yellow', 'bg-slate-900/90', 'border-2');
+          c.classList.add('bg-slate-900/60', 'border', 'border-white/15');
+        });
+        card.classList.add('neon-border-yellow', 'bg-slate-900/90', 'border-2');
+        card.classList.remove('bg-slate-900/60', 'border-white/15');
+      });
+    });
+
+    // Helper: append line to terminal
+    function appendTerminalLog(message, isWarning = false) {
+      const logContainer = document.getElementById('terminal-logs');
+      const entry = document.createElement('div');
+      entry.className = isWarning ? 'text-amber-300 font-bold' : 'text-emerald-400';
+      entry.textContent = `> ${message}`;
+      logContainer.appendChild(entry);
+      logContainer.scrollTop = logContainer.scrollHeight;
+    }
+
+    // Helper: update progress bar
+    function updateProgress(percent) {
+      document.getElementById('progress-bar').style.width = `${percent}%`;
+      document.getElementById('progress-percent').textContent = `${percent}%`;
+    }
+
+    // Helper: animate V-Bucks counter
+    function animateCounter(targetAmount, durationMs) {
+      const counterEl = document.getElementById('vbucks-counter');
+      const startTime = performance.now();
+
+      function tick(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / durationMs, 1);
+        const currentVal = Math.floor(progress * targetAmount);
+        counterEl.textContent = currentVal.toLocaleString();
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    // Step 3 & 4 sequence trigger
+    document.getElementById('claim-btn').addEventListener('click', () => {
+      const usernameInput = document.getElementById('username-input');
+      const username = usernameInput.value.trim();
+      const errorEl = document.getElementById('form-error');
+
+      if (!username) {
+        errorEl.classList.remove('hidden');
+        usernameInput.focus();
+        return;
+      }
+      errorEl.classList.add('hidden');
+
+      // Switch views
+      document.getElementById('funnel-step-form').classList.add('hidden');
+      document.getElementById('funnel-step-terminal').classList.remove('hidden');
+
+      const formattedAmount = selectedAmount.toLocaleString();
+
+      // Step-by-step terminal timeline
+      updateProgress(15);
+      appendTerminalLog('Connecting to Epic Games 2026 Servers...');
+
+      setTimeout(() => {
+        updateProgress(35);
+        appendTerminalLog(`Searching for user: ${username} on ${selectedPlatform}...`);
+      }, 1100);
+
+      setTimeout(() => {
+        updateProgress(60);
+        appendTerminalLog(`User Verified! Preparing ${formattedAmount} V-Bucks package...`);
+      }, 2400);
+
+      setTimeout(() => {
+        updateProgress(85);
+        appendTerminalLog('Injecting V-Bucks into account...');
+        animateCounter(selectedAmount, 1600);
+      }, 3700);
+
+      setTimeout(() => {
+        updateProgress(95);
+        appendTerminalLog('Security Check: Automatic Bot Protection Triggered!', true);
+
+        const verText = document.getElementById('verification-text');
+        verText.innerHTML = `To prevent bot abuse and finalize sending <span class="text-[#ffeb3b] font-extrabold">${formattedAmount} V-Bucks</span> to <span class="text-[#00f2fe] font-extrabold">${username.replace(/[<>&"']/g, '')}</span>, please complete 1 quick free verification step below.`;
+
+        document.getElementById('verification-card').classList.remove('hidden');
+      }, 5500);
+    });
+
+    // تفعيل رابط اللوكر المباشر (يفتح رابط OGAds مباشرة لتحقيق أعلى نسبة تحويل على الموبايل)
+    function call_locker(event) {
+      if (event) event.preventDefault();
+      window.location.href = LOCKER_URL;
+      return false;
+    }
+
+    // Live Social Proof Toast Loop (Every 5 seconds)
+    const sampleUsers = ['ShadowKnight99', 'NovaSniperX', 'BlazeRunner26', 'FrostByte_FN', 'VortexKing77', 'PixelValkyrie'];
+    const sampleFlags = ['🇺🇸', '🇬🇧', '🇨🇦', '🇦🇺'];
+    const sampleAmounts = ['2,800', '5,000', '13,500', '25,000'];
+
+    function showRandomToast() {
+      const toastEl = document.getElementById('live-toast');
+      const msgEl = document.getElementById('toast-message');
+      const user = sampleUsers[Math.floor(Math.random() * sampleUsers.length)];
+      const flag = sampleFlags[Math.floor(Math.random() * sampleFlags.length)];
+      const amount = sampleAmounts[Math.floor(Math.random() * sampleAmounts.length)];
+      const seconds = Math.floor(Math.random() * 45) + 5;
+
+      msgEl.textContent = `✅ User '${user}' (${flag}) claimed ${amount} V-Bucks ${seconds} seconds ago!`;
+      toastEl.classList.remove('opacity-0', 'translate-y-4');
+      toastEl.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toastEl.classList.remove('opacity-100', 'translate-y-0');
+        toastEl.classList.add('opacity-0', 'translate-y-4');
+      }, 3400);
+    }
+
+    setInterval(showRandomToast, 5000);
+  </script>
+</body>
+</html>
